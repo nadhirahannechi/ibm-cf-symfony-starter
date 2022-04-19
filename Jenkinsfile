@@ -5,7 +5,7 @@ FOLDER_NAME = env.JOB_NAME.split('/')[0]
 pipeline {
     agent {
         docker {
-                    image 'phpdockerio/php74-cli'
+                    image 'composer'
                     args '-v $HOME/composer:/home/jenkins/.composer:z'
                     reuseNode true
                 }
