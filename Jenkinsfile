@@ -5,7 +5,7 @@ FOLDER_NAME = env.JOB_NAME.split('/')[0]
 pipeline {
     agent {
         docker {
-                    image 'composer'
+                    image 'phpdockerio/php72-cli'
                     args '-v $HOME/composer:/home/jenkins/.composer:z'
                     reuseNode true
                 }
@@ -24,6 +24,7 @@ pipeline {
         stage('Install packages') {
             steps {
                 // Install
+                sh 'composer update --with-all-dependencies'
                 sh 'composer install --no-progress --no-interaction'
             }
           }
