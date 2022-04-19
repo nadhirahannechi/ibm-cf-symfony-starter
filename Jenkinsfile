@@ -24,7 +24,7 @@ pipeline {
         stage('Install packages') {
             steps {
                 // Install
-                sh 'php composer.phar install'
+                sh 'composer install --no-progress --no-interaction'
             }
           }
          stage('Coverage') {
