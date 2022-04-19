@@ -5,7 +5,7 @@ FOLDER_NAME = env.JOB_NAME.split('/')[0]
 pipeline {
     agent {
         docker {
-                    image 'runroom/php7.2-cli'
+                    image 'phpdockerio/php72-cli'
                     args '-v $HOME/composer:/home/jenkins/.composer:z'
                     reuseNode true
                 }
